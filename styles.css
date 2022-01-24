@@ -7,44 +7,110 @@ Dark violet: #680747
 Super dark violet: #141010
 
 */
+
 body {
-    background-color: #141010;
+    background-image: linear-gradient(#680747, #141010, #680747);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
-    margin:3vw;
+}
+
+h1 {
+    color: #f70776;
 }
 
 .text {
-    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-family: monospace;
     font-size: 3vh;
 }
 
 /* main grid that houses squares */
 #grid {
     display: grid; /* shocker! */
-    width: 50vw;
-    height: 50vw;
+    width: 40vh;
+    height: 40vh;
     background-color: #680747;
 }
 
 .block {
     background-color: white;
-    border: black 1px solid;
 }
 
 .active {
     background-color: black;
 }
 
-#clear {
-    margin: 3vw;
+.border {
+    border: outset #c3195d 1vh;
 }
 
-#warning {
-    color: orangered;
-    width: 50vw;
-    text-align: center;
-    font-size: 2.5vh;
+#clear {
+    margin: 3vw;
+    color: #c3195d;
+    width: 25vh;
+}
+
+#size {
+    width: 20vh;
+}
+
+#size:focus {
+    outline: none;
+}
+
+#title {
+    color: #f70776;
+    font-size: 5vh;
+}
+
+#gh {
+    width: 8vh;
+    height: 8vh;
+}
+
+#header {
+    width: 100vw;
+    height:10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: rgb(255,255,255,0.15);
+    justify-self: top;
+    align-items: center;
+    margin-bottom: 0vh;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    background-color: rgb(255,255,255,0.15);
+    justify-content: space-evenly;
+    align-items: center;
+    height: 35vh;
+}
+
+.check {
+    display: flex;
+}
+
+label {
+    display: block;
+    color: #f70776;
+    margin-left: 3vw;
+}
+
+.click-cont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2vh;
+}
+
+.gridlines {
+    border: solid lightgray 1px;
 }

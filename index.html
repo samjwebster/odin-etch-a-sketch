@@ -9,10 +9,34 @@
     <title>Etch-A-Sketch</title>
 </head>
 <body>
-    <div id="grid"></div>
-    <button id="clear" class="text">Clear Grid</button>
-    <input id="size" type="number" placeholder = "grid length" class="text">Grid Size</input>
-    <p id="warning" class="text">Warning: Grids over a length of 50 might be very laggy, or even too large to generate.<br>Scale with caution!</p>
-    <button id="resize" class="text">Resize</button>
+    <div id="header">
+
+        <h1 id="title" class="text">Etch-a-Sketch</h1>
+
+        <img id="gh" src="gh_logo.svg"></img>
+    </div>
+
+    <div id="grid" class="border"></div>
+
+    <div id="options" class="text border">
+
+        <button id="clear" class="text border">Clear Grid</button>
+        <input id="size" type="number" placeholder = "grid size" class="text border"></input>
+
+        <div id="items">
+            <div class="click-cont">
+                <input type="checkbox" id="click" class="check"></input>
+                <label for="click">Click Squares</label>
+            </div>
+            <div class="click-cont">
+                <input type="checkbox" id="rainbow" class="check"></input>
+                <label for="rainbow">Rainbow Mode</label>
+            </div>
+            <div class="click-cont">
+                <input type="checkbox" id="gridlines" class="check"></input>
+                <label for="click">Display Gridlines</label>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
