@@ -12,6 +12,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    margin:3vw;
+}
+
+.text {
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-size: 3vh;
 }
 
 /* main grid that houses squares */
@@ -29,4 +36,15 @@ body {
 
 .active {
     background-color: black;
+}
+
+#clear {
+    margin: 3vw;
+}
+
+#warning {
+    color: orangered;
+    width: 50vw;
+    text-align: center;
+    font-size: 2.5vh;
 }
