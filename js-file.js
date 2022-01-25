@@ -18,8 +18,9 @@ var setting = 0;
 var color = 'rgb(0, 0, 0)';
 const white = 'rgb(255, 255, 255)';
 
-
-
+/*==============================================================
+                            FUNCTIONS
+==============================================================*/
 
 function generateGrid(size) {
 
@@ -50,45 +51,22 @@ function generateGrid(size) {
             newBlock.classList.add("block");
             newBlock.style.gridRow = i;
             newBlock.style.gridColumn = j;
+            newBlock.style.backgroundColor = white;
+
+            if(gridlines_field.checked == true) {
+                newBlock.classList.add('gridlines');
+            }
 
             grid.appendChild(newBlock);
         } // end of j
     } // end of i
 
     document.querySelectorAll('.block').forEach( item => {
-        /* This works dont delete
-
-        switch(click_field.checked) {
-            case (true): {
-                item.addEventListener('mousedown', event => {
-                    if(item.style.backgroundColor != color) {
-                        item.style.backgroundColor = color;
-                    } else if (item.style.backgroundColor == color) {
-                        item.style.backgroundColor = white;
-                    }
-        
-                    if(item.classList.contains('gridlines')) {
-                        item.classList.remove('gridlines');
-                    }
-                }, false);
-                break;
-            }
-            case (false): {
-                
-                item.addEventListener('mouseenter', event => {
-
-                    item.style.backgroundColor = color;
-        
-                    if(item.classList.contains('gridlines')) {
-                        item.classList.remove('gridlines');
-                    }
-                }, false);
-            }
-        }*/
-
 
         // HOVERING
         item.addEventListener('mouseenter', event => {
+            color = randomizeColor();
+
             if(click_field.checked == false) {
                 item.style.backgroundColor = color;
 
@@ -101,27 +79,22 @@ function generateGrid(size) {
         // CLICKING
         item.addEventListener('mousedown', event => {
             if(click_field.checked == true) {
+                color = randomizeColor();
 
-                //white to black
+                //white to color
                 if(item.style.backgroundColor == white) {
                     item.style.backgroundColor = color;
 
                     if(gridlines_field.checked == true) {
-                        console.log('fuck gridlines!');
                         item.classList.remove('gridlines');
                     }
-                //black to white
-                } else if (item.style.backgroundColor == color) {
+                //color to white
+                } else if (item.style.backgroundColor != white) {
                     item.style.backgroundColor = white;
 
                     if(gridlines_field.checked == true) {
-                        console.log('adding gridlines!');
                         item.classList.add('gridlines');
                     }
-                }
-
-                if(item.classList.contains('gridlines')) {
-                    item.classList.remove('gridlines');
                 }
             }
         }, false);
@@ -130,17 +103,9 @@ function generateGrid(size) {
 }
 
 function clearFunc() {
-    /*
-    document.querySelectorAll('.block').forEach( item => {
-        item.classList.remove('active');
-    });
-    */
-
-
     document.querySelectorAll('.block').forEach( item => {
         item.style.backgroundColor = white;
     });
-
 
     if(gridlines_field.checked == true) {
         document.querySelectorAll('.block').forEach( item => {
@@ -149,26 +114,26 @@ function clearFunc() {
     }
 }
 
+function randomizeColor() {
+    if(rainbow_field.checked == true) {
+        var o = Math.round, r = Math.random, s = 255;
+        return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+    }
+    else return color;
+}
+
 function init() {
     clear_btn.onclick = clearFunc;
-
 
     size_field.addEventListener('input', function () {
         generateGrid(size_field.value)
     });
 
-    /*
-    click_field.addEventListener('input', function () {
-        generateGrid(size_field.value);
-    });
-    */
-
-
     gridlines_field.addEventListener('input', function () {
         document.querySelectorAll('.block').forEach( item => {
             switch(gridlines_field.checked) {
                 case (true): {
-                    if(item.style.backgroundColor != color) {
+                    if(item.style.backgroundColor == white) {
                         item.classList.add('gridlines');
                     }
                     break;
@@ -178,12 +143,11 @@ function init() {
                     break;
                 }
             }
-
-
         });
     });
 
     generateGrid(16);
 }
 
+// initialize everything
 init();

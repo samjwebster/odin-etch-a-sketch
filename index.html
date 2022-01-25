@@ -10,23 +10,27 @@
 </head>
 <body>
     <div id="header">
+        <div id="header-text">
+            <div id="title" class="text">Etch-a-Sketch</div>
+            <div id="author" class="text">Samuel Webster</div>
+        </div>
 
-        <h1 id="title" class="text">Etch-a-Sketch</h1>
-
-        <img id="gh" src="gh_logo.svg"></img>
+        <img id="gh" src="gh_logo.svg" onClick="parent.open('https://github.com/samjwebster')"></img>
     </div>
 
     <div id="grid" class="border"></div>
 
     <div id="options" class="text border">
 
-        <button id="clear" class="text border">Clear Grid</button>
-        <input id="size" type="number" placeholder = "grid size" class="text border"></input>
+        <div id = "buttons">
+            <button id="clear" class="text border">Clear Grid</button>
+            <input id="size" type="number" placeholder = "grid size" class="text border"></input>
+        </div>
 
         <div id="items">
             <div class="click-cont">
                 <input type="checkbox" id="click" class="check"></input>
-                <label for="click">Click Squares</label>
+                <label for="click">Clicking Mode</label>
             </div>
             <div class="click-cont">
                 <input type="checkbox" id="rainbow" class="check"></input>
