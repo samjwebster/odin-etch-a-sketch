@@ -1,2 +1,2 @@
 Project: Etch-A-Sketch<br>
-link: this link is under construction..........
+[view](https://samjwebster.github.io/odin-etch-a-sketch/)
